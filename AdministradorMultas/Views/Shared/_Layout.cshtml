@@ -7,44 +7,231 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AdministradorMultas.styles.css" asp-append-version="true" />
+
+    <script src="https://kit.fontawesome.com/909c8f2881.js" crossorigin="anonymous"></script>
+
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgb(35, 35, 35);
+            color: #fff;
+            display: flex;
+            align-items: top;
+            justify-content: space-between;
+        }
+
+        .header img {
+            height: 60px; /* Ajusta esto al tamaño que prefieras */
+            width: auto; /* Esto mantiene las proporciones de la imagen */
+        }
+
+        .nav {
+            position: fixed;
+            top: 60px; /* Adjust according to your header height */
+            left: 0;
+            height: calc(100% - 120px); /* Adjust according to your header and footer height */
+            width: 200px;
+            overflow-y: hidden; /* Esto esconde el scroll */
+            background-color: rgb(35,35,35) !important;
+        }
+
+        .nav .navbar-nav {
+            flex-direction: column; /* Esto asegura que los items del nav estén uno debajo del otro */
+        }
+
+        .body {
+            margin-left: 200px;
+            padding-top: 60px; /* Adjust according to your header height */
+            padding-bottom: 60px; /* Adjust according to your footer height */
+        }
+
+        .body-container {
+            background-color: rgb(50,50,50) !important;
+            margin-left: 200px;
+            padding-top: 80px; /* Adjust according to your header height */
+            padding-bottom: 60px; /* Adjust according to your footer height */
+            min-height: calc(100vh - 60px); /* Adjust according to your header and footer height */
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            background-color: rgb(35, 35, 35);
+            display: flex;
+            align-items: top;
+            justify-content: space-between;
+        }
+
+        #pageFooter {
+            width: 100% !important;
+            padding: 0.5em;
+            background-color: rgb(35, 35, 35);
+            color: rgb(154, 154, 154);
+            text-align: center;
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 12px;
+            margin-top: auto; /* se agrega esta línea para empujar el footer al final */
+            position: absolute;
+            bottom: 0;
+        }
+
+
+        #pageFooter #address {
+            vertical-align: bottom;
+            float: left;
+            margin-left: 10px;
+        }
+
+        #pageFooter #webpage {
+            vertical-align: top;
+            float: center;
+            font-size: 16px;
+        }
+
+        #pageFooter #phonenumber {
+            vertical-align: bottom;
+            float: right;
+            margin-right: 10px;
+        }
+
+        #pageFooter i {
+            vertical-align: middle;
+            font-size: 1em;
+        }
+
+        #pageFooter a:link {
+            vertical-align: top;
+            font-family: 'Titillium Web', sans-serif;
+            color: #999;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        #pageFooter a:visited {
+            vertical-align: top;
+            font-family: 'Titillium Web', sans-serif;
+            color: #999;
+            text-decoration: none;
+        }
+
+        #pageFooter a:hover {
+            vertical-align: top;
+            font-family: 'Titillium Web', sans-serif;
+            color: #999;
+            text-decoration: underline;
+        }
+
+        #pageFooter a:active {
+            vertical-align: top;
+            font-family: 'Titillium Web', sans-serif;
+            color: #999;
+            text-decoration: underline;
+        }
+
+        #pageFooter a:focus {
+            color: #999; /* conserva el mismo color */
+            text-decoration: underline; /* conserva el mismo estilo de subrayado */
+            outline: none; /* elimina el contorno que algunos navegadores añaden por defecto */
+            /* añade más propiedades si es necesario, pero asegúrate de que no oculten el footer */
+        }
+
+        .login-item {
+            display: block;
+            margin-right: 50px;
+        }
+
+        .login-nav .nav-link {
+            color: white !important; /* Cambia esto al color que prefieras */
+        }
+
+        .navbar-nav.login-nav {
+            flex-direction: row !important; /* Cambia la dirección de la flexión a la fila */
+        }
+
+            .navbar-nav.login-nav .nav-item {
+                display: inline-block;
+            }
+
+
+    </style>
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AdministradorMultas</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
+
+    <header class="header">
+        <img src="~/img/logo-web.png" alt="header image" />
+        <span id="headerSpan">
+            <i class="fa-solid fa-clock"></i>
+            [<span class="datetime" id="date"></span>
+            <span class="datetime" id="time"></span>]
+            <br />
+            <span class="datetime"></span>
+        </span>
+        <partial name="_LoginPartial" />
     </header>
-    <div class="container">
+
+    <nav class="nav navbar-expand-sm navbar-light bg-white border-right box-shadow">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                        <i class="fas fa-users"></i> Usuarios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                        <i class="fas fa-camera"></i> Camaras
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                        <i class="fas fa-info"></i> Informacion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                        <i class="fas fa-cogs"></i> Caracteristicas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body-container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - AdministradorMultas - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="footer">
+        <span id="address">Lisandro de la Torre 4331 (1439) CABA</span>
+        <span id="webpage"><a href="http://www.vialcontrol.com">www.vialcontrol.com</a></span>
+        <span id="phonenumber">
+            <i class="fa-solid fa-phone"></i>
+            <span>+54 11 2077-3176</span>
+        </span>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="js/dateTime.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
