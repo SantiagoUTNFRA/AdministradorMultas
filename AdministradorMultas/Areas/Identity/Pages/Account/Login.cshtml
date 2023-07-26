@@ -5,34 +5,210 @@
     ViewData["Title"] = "Log in";
 }
 
+<style>
+
+    .login-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-20%, -60%);
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .login-container {
+        /* El resto de tus estilos */
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .container-form-login {
+        display: flex;
+        border-radius: 20px;
+        box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+        height: 500px;
+        max-width: 900px;
+        transition: all 1s ease;
+        margin: 10px;
+        /* margin-top: auto; */
+        margin-top: 100px; /* ajusta esto según tus necesidades */
+    }
+
+    .information {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background-color: rgb(35, 35, 35);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .info-childs {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+        .info-childs h2 {
+            font-size: 2.5rem;
+            color: rgb(154, 154, 154);
+        }
+
+        .info-childs p {
+            margin: 15px 0;
+            color: rgb(154, 154, 154);
+        }
+
+        .info-childs input {
+            background-color: transparent;
+            outline: none;
+            border: solid 2px rgb(154, 154, 154);
+            border-radius: 20px;
+            padding: 10px 20px;
+            color: rgb(154, 154, 154);
+            cursor: pointer;
+            transition: background-color .3s ease;
+        }
+
+            .info-childs input:hover {
+                background-color: rgb(154, 154, 154);
+                border: solid 2px rgb(35, 35, 35);
+                color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+    .form-information {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        text-align: center;
+        background-color: rgb(154, 154, 154);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .form-information-childs {
+        padding: 0 30px;
+    }
+
+        .form-information-childs h2 {
+            color: rgb(35, 35, 35);
+            font-size: 2rem;
+        }
+
+        .form-information-childs p {
+            color: rgb(35, 35, 35);
+        }
+
+    .icons {
+        margin: 15px 0;
+    }
+
+        .icons i {
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            margin: 0 10p x;
+            color: rgb(35, 35, 35);
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: solid thin rgb(35, 35, 35);
+        }
+
+            .icons i:hover {
+                background-color: rgb(35, 35, 35);
+                color: rgb(154, 154, 154);
+            }
+
+    .form {
+        margin: 30px 0 0 0;
+    }
+
+        .form label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            padding: 0 10px;
+            background-color: rgb(35, 35, 35);
+            box-shadow: 0 2px 50x rgba(0, 0, 0, 0.1);
+        }
+
+            .form label input {
+                width: 100%;
+                padding: 10px;
+                background-color: rgb(35, 35, 35);
+                border: none;
+                outline: none;
+                border-radius: 20px;
+                color: rgb(154, 154, 154)
+            }
+
+            .form label i {
+                color: rgb(154, 154, 154)
+            }
+
+        .form input[type="text"] {
+            color: rgb(154, 154, 154)
+        }
+
+        .form input[type="submit"] {
+            background-color: rgb(35, 35, 35);
+            color: rgb(154, 154, 154);
+            border-radius: 20px;
+            border: solid 2px rgb(35, 35, 35);
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 2px 50x rgba(0, 0, 0, 0.1);
+        }
+
+            .form input[type="submit"]:hover {
+                background-color: rgb(154, 154, 154); /*revisar aqui*/
+                color: rgb(35, 35, 35); /*revisar aqui*/
+            }
+
+   
+</style>
+
 <h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+<div class="login-container">
+    <div class="container-form-login">
+        <div class="information">
+            <div class="info-childs">
+                <h2>No tienes una cuenta?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <input type="button" value="Registrarse" id="sign-in-form" onclick="location.href='./Register';">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Inicar Sesión</h2>
+                <div class="icons">
+                    <i class="bx bxl-google" id="googleLogin"></i>
+                    <i class="bx bxl-github"></i>
                 </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="checkbox mb-3">
+                <p>Iniciar sesión con una cuenta</p>
+                <form id="account" method="post">
+                    <label>
+                        <i class="bx bx-envelope"></i>
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Correo Electrónico" required autofocus />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </label>
+                    <label>
+                        <i class="bx bx-lock-alt"></i>
+                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Contraseña" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </label>
                     <label asp-for="Input.RememberMe" class="form-label">
                         <input class="form-check-input" asp-for="Input.RememberMe" />
                         @Html.DisplayNameFor(m => m.Input.RememberMe)
                     </label>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <div>
+                    <input type="submit" value="Iniciar Sesión">
                     <p>
                         <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
@@ -42,41 +218,13 @@
                     <p>
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                     </p>
-                </div>
-            </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
