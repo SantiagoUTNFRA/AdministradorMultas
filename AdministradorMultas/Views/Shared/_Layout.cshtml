@@ -12,6 +12,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 
     <style>
+
         .header {
             position: fixed;
             top: 0;
@@ -35,36 +36,54 @@
             top: 60px; /* Adjust according to your header height */
             left: 0;
             height: calc(100% - 120px); /* Adjust according to your header and footer height */
-            width: 200px;
-            overflow-y: hidden; /* Esto esconde el scroll */
+            width: 180px;
+            overflow: hidden;
             background-color: rgb(35,35,35) !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Alinea los elementos en el espacio disponible */
+            transition: width 0.2s;
+            font-family: 'Titillium Web', sans-serif !important;
         }
 
         .nav .navbar-nav {
-            flex-direction: column !important; /* Esto asegura que los items del nav estén uno debajo del otro */
-            align-items: center !important; /* Esto centrará los items del nav en el medio */
+            flex-direction: column; /* Esto asegura que los items del nav estén uno debajo del otro */
+            align-items: center; /* Esto centrará los items del nav en el medio */
+            justify-content: center;
+            flex-grow: 1;
+            overflow-y: hidden !important;
+            overflow-x: hidden !important;
+        }
+        .nav .navbar-nav .logout-item {
+            margin-top: auto; /* Empuja este elemento hacia abajo */
+        }
+
+        .nav .navbar-nav .nav-item:last-child {
+            margin-bottom: 20px; /* Añade un poco de espacio en la parte inferior */
+
         }
 
         .nav .navbar-nav li > a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: start;
-                    padding: 10px 0; /* Esto añade un poco de espacio entre cada elemento */
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px 0; /* Esto añade un poco de espacio entre cada elemento */
         }
 
 
         .nav .navbar-nav li {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 10px 0; /* Esto añade un poco de espacio entre cada elemento */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0; /* Esto añade un poco de espacio entre cada elemento */
         }
+
 
         .nav .navbar-nav li > a {
             position: relative;
             border-collapse: collapse;
             border-spacing: 0;
-            color: #999;
+            color: rgb(150,150,150); /* color de texto inicial en blanco */
             font-size: 15px;
             text-decoration: none;
             -webkit-transform: translateZ(0) scale(1, 1);
@@ -74,14 +93,15 @@
             display: flex;
             align-items: center;
             justify-content: start;
-            padding: 10px 0; /* Esto añade un poco de espacio entre cada elemento */
+            padding: 15px 0; /* Esto añade un poco de espacio entre cada elemento */
+           
         }
+
 
         .nav .navbar-nav .nav-icon {
                     width: 60px;
                     height: 20px;
                     text-align: center;
-                    margin-right: 0px; /* Esto añade un poco de espacio entre el ícono y el texto */
                     display: inline-block;
                     vertical-align: middle;
                 }
@@ -95,7 +115,7 @@
         
         .nav .navbar-nav li:hover > a,
         .nav .navbar-nav li.active > a {
-            color: #fff;
+            color: white;
             background-color: rgb(50,50,50);
         }
 
@@ -103,14 +123,17 @@
             margin-left: 200px;
             padding-top: 60px; /* Adjust according to your header height */
             padding-bottom: 60px; /* Adjust according to your footer height */
+            transition: margin-left 0.5s; 
         }
 
         .body-container {
             background-color: rgb(50,50,50) !important;
-            margin-left: 200px;
+            margin-left:auto;
+            margin-bottom: 60px; /* Adjust according to your footer height */
             padding-top: 80px; /* Adjust according to your header height */
             padding-bottom: 60px; /* Adjust according to your footer height */
             min-height: calc(100vh - 60px); /* Adjust according to your header and footer height */
+            transition: margin-left 0.5s; 
         }
 
         .footer {
@@ -160,13 +183,14 @@
             font-size: 1em;
         }
 
-        #pageFooter a:link {
+       #pageFooter a:link {
             vertical-align: top;
             font-family: 'Titillium Web', sans-serif;
-            color: #999;
+            color: #ffffff; /* color de texto inicial en blanco */
             text-decoration: none;
             font-size: 1em;
         }
+
 
         #pageFooter a:visited {
             vertical-align: top;
@@ -202,7 +226,7 @@
         }
 
         .login-nav .nav-link {
-            color: white !important; /* Cambia esto al color que prefieras */
+            color: white ; /* Cambia esto al color que prefieras */
         }
 
         .navbar-nav.login-nav {
@@ -213,8 +237,156 @@
             display: inline-block;
         }
 
+        .navbar-nav.login-nav .nav-item .nav-link {
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .nav .navbar-nav button.nav-link {
+             background: none;
+            border: none;
+            color: #ffffff; /* color inicial del texto en blanco */
+            text-align: left; /* alineación del texto */
+            cursor: pointer; /* cambia el cursor al estilo de enlace */
+            padding: 0; /* remueve el padding del botón */
+            font-size: 20px; /* tamaño de la fuente */
+
+        }
+
+        .nav .navbar-nav button.nav-link .nav-icon,
+        .nav .navbar-nav button.nav-link .nav-text {
+            display: inline-block; /* permite la disposición en línea de los elementos */
+        }
+
+        .nav .navbar-nav button.nav-link:hover,
+        .nav .navbar-nav button.nav-link:active,
+        .nav .navbar-nav button.nav-link:focus {
+            color: #fff;
+            background-color: rgb(50,50,50);
+            text-decoration: none; /* remueve cualquier decoración del texto */
+        }
+
+        .logout-item .nav-link {
+            color: rgb(150,150,150); /* Asegura que el color del texto sea blanco */
+        }
+
+        .logout-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav .logout-item .nav-link:hover,
+        .nav .logout-item .nav-link:active,
+        .nav .logout-item .nav-link:focus {
+            color: #fff;
+            background-color: rgb(50,50,50);
+            text-decoration: none;
+        }
+
+        .nav .navbar-nav > .nav-item {
+            height: 100%;
+            width: 100%; /* Agregar esto para que el elemento se extienda por todo el ancho de la barra */
+            display: flex;
+            align-items: stretch;
+        }
+
+        .nav .navbar-nav > .nav-item > .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; /* Asegurarte de que el enlace también ocupa todo el ancho del elemento de la lista */
+        }
+
+        .nav .navbar-nav > .nav-item:hover,
+        .nav .navbar-nav > .nav-item:active,
+        .nav .navbar-nav > .nav-item:focus {
+            background-color: rgb(50,50,50);
+        }
+
+        .nav .navbar-nav > .nav-item:hover .nav-link,
+        .nav .navbar-nav > .nav-item:active .nav-link,
+        .nav .navbar-nav > .nav-item:focus .nav-link {
+            color: #fff;
+        }
+
+        .nav-collapsed {
+            width: 80px; /* Esta será la anchura de la barra de navegación cuando esté colapsada. Ajuste según sea necesario. */
+
+        }
+
+        .nav-collapsed .nav-text {
+            display: none !important; /* Esto ocultará el texto cuando la barra de navegación esté colapsada. */
+        }
+
+        .nav-collapsed .nav-icon {
+            margin: 0 auto; /* Esto centrará los iconos cuando el nav esté colapsado */
+        }
+
+        .nav-collapsed .nav .navbar-nav .nav-icon {
+    margin: 0 auto; /* Centra el ícono horizontalmente */
+    display: block; /* Cambia a block para poder aplicar el margen automático */
+}
+
+.nav-collapsed .nav .navbar-nav .nav-item {
+    display: flex;
+    align-items: center; /* Centra los ítems verticalmente en el contenedor */
+    justify-content: center; /* Centra los ítems horizontalmente en el contenedor */
+}
+
+.nav-collapsed .nav .navbar-nav .nav-text {
+    display: none; /* Oculta el texto */
+}
+
+
+.nav .navbar-nav li:hover .nav-item-label {
+    display: inline-block;
+}
+
+
+@@media (max-width: 768px) { /* Ajusta este valor según cuándo quieras que se contraiga el nav */
+    .nav {
+        width: 80px ;
+        transition: width 0.5s;        
+    }
+    
+    .nav-collapsed .nav .navbar-nav .nav-icon {
+        margin: auto;
+        display: block;
+
+    }
+
+    .nav-collapsed .nav .navbar-nav .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .nav-collapsed .nav .navbar-nav .nav-text {
+        display: none;
+
+    }
+
+    .body-container {
+            background-color: rgb(50,50,50) !important;
+            min-height: calc(100vh - 60px); /* Adjust according to your header and footer height */
+            margin-bottom: 60px; /* Adjust according to your footer height */
+            padding-top: 80px; /* Adjust according to your header height */
+            padding-bottom: 60px; /* Adjust according to your footer height */
+            transition: margin-left 0.5s; 
+            margin-left:200px !important; 
+        }
+
+    }
+
 
     </style>
+
+
+
 
 </head>
 <body>
@@ -228,66 +400,75 @@
             <br />
             <span class="datetime"></span>
         </span>
-        <partial name="_LoginPartial" />
+        
     </header>
 
-    <nav class="nav navbar-expand-sm navbar-light bg-white border-right box-shadow">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Home" asp-action="Index">
+
+    @{
+        var showNav = ViewData["ShowNav"] as bool? ?? true; // Si "ShowNav" no está establecido, mostrará el Nav por defecto
+    }
+
+    @if(showNav)
+    {
+         <nav class="nav navbar-expand-sm navbar-light bg-white border-right box-shadow nav-collapsed">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <span class="nav-icon">
+                                <i class="fa fa-home fa-xl"></i>
+                            </span>
+                            <span class="nav-text nav-item-label">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="User" asp-action="Usuarios">
+                            <span class="nav-icon">
+                                <i class="nav-icon fa fa-users fa-xl"></i>
+                            </span>
+                            <span class="nav-text nav-item-label">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                            <span class="nav-icon">
+                            <i class="nav-icon fa fa-camera fa-xl"></i>
+                            </span>
+                            <span class="nav-text nav-item-label">Camaras</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                            <span class="nav-icon">
+                            <i class="nav-icon fa fa-info fa-xl"></i>
+                            </span>
+                            <span class="nav-text nav-item-label">Informacion</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
+                            <span class="nav-icon">
+                            <i class="nav-icon fa fa-cogs fa-xl"></i>
+                            </span>
+                            <span class="nav-text nav-item-label">Caracteristicas</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="nav-item logout-item">
+                <form asp-area="Identity" asp-page="/Account/Logout" method="post">
+                    <button type="submit" class="nav-link btn btn-link" id="logoutBtn">
                         <span class="nav-icon">
-                            <i class="fa fa-home fa-xl"></i>
-                        </span>
-                        <span class="nav-text">Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
-                        <span class="nav-icon">
-                            <i class="nav-icon fa fa-users fa-xl"></i>
-                        </span>
-                        <span class="nav-text">Usuarios</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
-                        <span class="nav-icon">
-                        <i class="nav-icon fa fa-camera fa-xl"></i>
-                        </span>
-                        <span class="nav-text">Camaras</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
-                        <span class="nav-icon">
-                        <i class="nav-icon fa fa-info fa-xl"></i>
-                        </span>
-                        <span class="nav-text">Informacion</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
-                        <span class="nav-icon">
-                        <i class="nav-icon fa fa-cogs fa-xl"></i>
-                        </span>
-                        <span class="nav-text">Caracteristicas</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="cambiarControlador" asp-action="cambiarAccion">
-                        <span class="nav-icon">
-                        <i class="nav-icon fa fa-sign-out-alt fa-xl"></i>
+                            <i class="nav-icon fa fa-sign-out-alt fa-xl"></i>
                         </span>
                         <span class="nav-text">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-
+                    </button>
+                </form>
+            </li>
+        </nav>
+    }
+    
     <div class="body-container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -306,7 +487,20 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script type="module" src="js/dateTime.js"></script>
+    <script type="module" src="/js/dateTime.js"></script>
+
+    <script>
+        var navbar = document.querySelector('.nav');
+
+        navbar.addEventListener('mouseenter', function() {
+            navbar.classList.remove('nav-collapsed');
+        });
+
+        navbar.addEventListener('mouseleave', function() {
+            navbar.classList.add('nav-collapsed');
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

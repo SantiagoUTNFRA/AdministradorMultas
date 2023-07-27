@@ -1,29 +1,23 @@
 ﻿@page
 @model LoginModel
-
 @{
     ViewData["Title"] = "Log in";
+    ViewData["ShowNav"] = false;
 }
 
 <style>
 
     .login-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-20%, -60%);
-        width: 100%;
-        padding: 0 20px;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .login-container {
         /* El resto de tus estilos */
+        position: absolute;
         margin: 0;
         padding: 0;
-    }
 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding-bottom: 100px;
+    }
 
     .container-form-login {
         display: flex;
@@ -52,33 +46,33 @@
         padding: 0 30px;
     }
 
-        .info-childs h2 {
-            font-size: 2.5rem;
-            color: rgb(154, 154, 154);
-        }
+    .info-childs h2 {
+        font-size: 2.5rem;
+        color: rgb(154, 154, 154);
+    }
 
-        .info-childs p {
-            margin: 15px 0;
-            color: rgb(154, 154, 154);
-        }
+    .info-childs p {
+        margin: 15px 0;
+        color: rgb(154, 154, 154);
+    }
 
-        .info-childs input {
-            background-color: transparent;
-            outline: none;
-            border: solid 2px rgb(154, 154, 154);
-            border-radius: 20px;
-            padding: 10px 20px;
-            color: rgb(154, 154, 154);
-            cursor: pointer;
-            transition: background-color .3s ease;
-        }
+    .info-childs input {
+        background-color: transparent;
+        outline: none;
+        border: solid 2px rgb(154, 154, 154);
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: rgb(154, 154, 154);
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
 
-            .info-childs input:hover {
-                background-color: rgb(154, 154, 154);
-                border: solid 2px rgb(35, 35, 35);
-                color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
+    .info-childs input:hover {
+        background-color: rgb(154, 154, 154);
+        border: solid 2px rgb(35, 35, 35);
+        color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
     .form-information {
         display: flex;
@@ -95,88 +89,92 @@
         padding: 0 30px;
     }
 
-        .form-information-childs h2 {
-            color: rgb(35, 35, 35);
-            font-size: 2rem;
-        }
+    .form-information-childs h2 {
+        color: rgb(35, 35, 35);
+        font-size: 2rem;
+    }
 
-        .form-information-childs p {
-            color: rgb(35, 35, 35);
-        }
+    .form-information-childs p {
+        color: rgb(35, 35, 35);
+    }
 
     .icons {
         margin: 15px 0;
     }
 
-        .icons i {
-            border-radius: 50%;
-            padding: 15px;
-            cursor: pointer;
-            margin: 0 10p x;
-            color: rgb(35, 35, 35);
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border: solid thin rgb(35, 35, 35);
-        }
+    .icons i {
+        border-radius: 50%;
+        padding: 15px;
+        cursor: pointer;
+        margin: 0 10px;
+        color: rgb(35, 35, 35);
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: solid thin rgb(35, 35, 35);
+    }
 
-            .icons i:hover {
-                background-color: rgb(35, 35, 35);
-                color: rgb(154, 154, 154);
-            }
+    .icons i:hover {
+        background-color: rgb(35, 35, 35);
+        color: rgb(154, 154, 154);
+    }
 
     .form {
         margin: 30px 0 0 0;
     }
 
-        .form label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            border-radius: 20px;
-            padding: 0 10px;
-            background-color: rgb(35, 35, 35);
-            box-shadow: 0 2px 50x rgba(0, 0, 0, 0.1);
-        }
+    .label-email,
+    .label-password {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        padding: 0 1px;
+        background-color: rgb(35, 35, 35);
+        box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+    }
 
-            .form label input {
-                width: 100%;
-                padding: 10px;
-                background-color: rgb(35, 35, 35);
-                border: none;
-                outline: none;
-                border-radius: 20px;
-                color: rgb(154, 154, 154)
-            }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        background-color: rgb(35, 35, 35);
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        color: rgb(154, 154, 154)
+    }
 
-            .form label i {
-                color: rgb(154, 154, 154)
-            }
+    .form label i {
+        color: rgb(154, 154, 154);
+    }
 
-        .form input[type="text"] {
-            color: rgb(154, 154, 154)
-        }
+    .form input[type="text"] {
+        color: rgb(154, 154, 154)
+    }
 
-        .form input[type="submit"] {
-            background-color: rgb(35, 35, 35);
-            color: rgb(154, 154, 154);
-            border-radius: 20px;
-            border: solid 2px rgb(35, 35, 35);
-            padding: 10px 15px;
-            cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 2px 50x rgba(0, 0, 0, 0.1);
-        }
+    .form input[type="submit"] {
+        background-color: rgb(35, 35, 35);
+        color: rgb(154, 154, 154);
+        border-radius: 20px;
+        border: solid 2px rgb(35, 35, 35);
+        padding: 10px 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+    }
 
-            .form input[type="submit"]:hover {
-                background-color: rgb(154, 154, 154); /*revisar aqui*/
-                color: rgb(35, 35, 35); /*revisar aqui*/
-            }
+    .form input[type="submit"]:hover {
+        background-color: rgb(154, 154, 154); /*revisar aqui*/
+        color: rgb(35, 35, 35); /*revisar aqui*/
+    }
 
+    #forgot-password,
+    #resend-confirmation {
+        text-decoration: none;
+    }
    
 </style>
 
-<h1>@ViewData["Title"]</h1>
-<div class="login-container">
+<div class="login-container container-login-main">
     <div class="container-form-login">
         <div class="information">
             <div class="info-childs">
@@ -193,16 +191,14 @@
                     <i class="bx bxl-github"></i>
                 </div>
                 <p>Iniciar sesión con una cuenta</p>
-                <form id="account" method="post">
-                    <label>
+               <form class="form" method="post">
+                    <label class="label-email">
                         <i class="bx bx-envelope"></i>
                         <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Correo Electrónico" required autofocus />
-                        <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </label>
-                    <label>
+                    <label class="label-password">
                         <i class="bx bx-lock-alt"></i>
                         <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Contraseña" />
-                        <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </label>
                     <label asp-for="Input.RememberMe" class="form-label">
                         <input class="form-check-input" asp-for="Input.RememberMe" />
@@ -213,7 +209,7 @@
                         <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"></a>
                     </p>
                     <p>
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
@@ -224,8 +220,3 @@
     </div>
 </div>
 
-
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
