@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AdministradorMultas.Migrations
 {
     /// <inheritdoc />
-    public partial class inicialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,6 +48,19 @@ namespace AdministradorMultas.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Municipios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Municipios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,6 +169,29 @@ namespace AdministradorMultas.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Camaras",
+                columns: table => new
+                {
+                    IdInspector = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdVialControl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ubicacion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaAlta = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LastModification = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MunicipioId = table.Column<int>(type: "int", nullable: false),
+                    MunicipiosId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Camaras", x => x.IdInspector);
+                    table.ForeignKey(
+                        name: "FK_Camaras_Municipios_MunicipiosId",
+                        column: x => x.MunicipiosId,
+                        principalTable: "Municipios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -194,6 +230,11 @@ namespace AdministradorMultas.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Camaras_MunicipiosId",
+                table: "Camaras",
+                column: "MunicipiosId");
         }
 
         /// <inheritdoc />
@@ -215,10 +256,16 @@ namespace AdministradorMultas.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Camaras");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Municipios");
         }
     }
 }

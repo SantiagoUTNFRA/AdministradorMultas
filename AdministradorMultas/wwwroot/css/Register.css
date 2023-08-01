@@ -1,0 +1,166 @@
+﻿.form-container {
+    /* El resto de tus estilos */
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 100px;
+}
+
+.container-form-register {
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    max-width: 900px;
+    transition: all 1s ease;
+    margin: 10px;
+    /* margin-top: auto; */
+    margin-top: 100px; /* ajusta esto según tus necesidades */
+}
+
+.information {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(35, 35, 35);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.info-childs {
+    width: 100%;
+    padding: 0 30px;
+}
+
+    .info-childs h2 {
+        font-size: 2.5rem;
+        color: rgb(154, 154, 154);
+    }
+
+    .info-childs p {
+        margin: 15px 0;
+        color: rgb(154, 154, 154);
+    }
+
+    .info-childs input {
+        background-color: transparent;
+        outline: none;
+        border: solid 2px rgb(154, 154, 154);
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: rgb(154, 154, 154);
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
+
+        .info-childs input:hover {
+            background-color: rgb(154, 154, 154);
+            border: solid 2px rgb(35, 35, 35);
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+.form-information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    text-align: center;
+    background-color: rgb(154, 154, 154);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.form-information-childs {
+    padding: 0 30px;
+}
+
+    .form-information-childs h2 {
+        color: rgb(35, 35, 35);
+        font-size: 2rem;
+    }
+
+    .form-information-childs p {
+        color: rgb(35, 35, 35);
+    }
+
+.icons {
+    margin: 15px 0;
+}
+
+    .icons i {
+        border-radius: 50%;
+        padding: 15px;
+        cursor: pointer;
+        margin: 0 10px;
+        color: rgb(35, 35, 35);
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: solid thin rgb(35, 35, 35);
+    }
+
+        .icons i:hover {
+            background-color: rgb(35, 35, 35);
+            color: rgb(154, 154, 154);
+        }
+
+.form {
+    margin: 30px 0 0 0;
+}
+
+.label-email,
+.label-confirm-password,
+.label-password {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 0 1px;
+    background-color: rgb(35, 35, 35);
+    box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(35, 35, 35);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: rgb(154, 154, 154)
+}
+
+.form label i {
+    color: rgb(154, 154, 154);
+}
+
+.form input[type="text"] {
+    color: rgb(154, 154, 154)
+}
+
+.form input[type="submit"] {
+    background-color: rgb(35, 35, 35);
+    color: rgb(154, 154, 154);
+    border-radius: 20px;
+    border: solid 2px rgb(35, 35, 35);
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
+}
+
+    .form input[type="submit"]:hover {
+        background-color: rgb(154, 154, 154); /*revisar aqui*/
+        color: rgb(35, 35, 35); /*revisar aqui*/
+    }
+
+.texto-erroneo {
+    color: #ff0000 !important; /* Rojo brillante para destacar */
+    margin-top: 5px !important; /* Espaciado superior para separar del input */
+    font-size: 0.8em !important; /* Un poco más pequeño que el texto normal para no ser demasiado abrumador */
+    text-align: left !important; /* Alineación a la izquierda para concordar con la alineación del texto del input */
+}

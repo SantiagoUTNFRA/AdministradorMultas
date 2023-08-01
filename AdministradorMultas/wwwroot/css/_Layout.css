@@ -1,0 +1,328 @@
+﻿.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgb(35, 35, 35);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .header img {
+        height: 60px; /* Ajusta esto al tamaño que prefieras */
+        width: auto; /* Esto mantiene las proporciones de la imagen */
+    }
+
+.nav {
+    position: fixed;
+    top: 60px; /* Adjust according to your header height */
+    left: 0;
+    height: calc(100% - 120px); /* Adjust according to your header and footer height */
+    width: 180px;
+    overflow: hidden;
+    background-color: rgb(35,35,35) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinea los elementos en el espacio disponible */
+    transition: width 0.2s;
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+    .nav .navbar-nav {
+        flex-direction: column; /* Esto asegura que los items del nav estén uno debajo del otro */
+        align-items: center; /* Esto centrará los items del nav en el medio */
+        justify-content: center;
+        flex-grow: 1;
+        overflow-y: hidden !important;
+        overflow-x: hidden !important;
+    }
+
+        .nav .navbar-nav .logout-item {
+            align-items: flex-start;
+            justify-content: flex-start; /* Empuja este elemento hacia abajo */
+        }
+
+        .nav .navbar-nav .nav-item:last-child {
+            margin-bottom: 20px; /* Añade un poco de espacio en la parte inferior */
+        }
+
+        .nav .navbar-nav li > a {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 10px; /* Esto añade un poco de espacio entre cada elemento */
+        }
+
+        .nav .navbar-nav li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 0; /* Esto añade un poco de espacio entre cada elemento */
+        }
+
+            .nav .navbar-nav li > a {
+                position: relative;
+                border-collapse: collapse;
+                border-spacing: 0;
+                color: rgb(150,150,150); /* color de texto inicial en blanco */
+                font-size: 15px;
+                text-decoration: none;
+                -webkit-transform: translateZ(0) scale(1, 1);
+                -webkit-transition: all .1s linear;
+                transition: all .1s linear;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 15px 0; /* Esto añade un poco de espacio entre cada elemento */
+            }
+
+        .nav .navbar-nav .nav-icon {
+            width: 60px;
+            height: 20px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .nav .navbar-nav .nav-text {
+            width: 110px;
+            text-align: start;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .nav .navbar-nav li:hover > a,
+        .nav .navbar-nav li.active > a {
+            color: white;
+            background-color: rgb(50,50,50);
+        }
+
+.body {
+    margin-left: 200px;
+    padding-top: 60px; /* Adjust according to your header height */
+    padding-bottom: 60px; /* Adjust according to your footer height */
+    transition: margin-left 0.5s;
+}
+
+.body-container {
+    background-color: rgb(50,50,50) !important;
+    margin-left: auto;
+    margin-bottom: 60px; /* Adjust according to your footer height */
+    padding-top: 80px; /* Adjust according to your header height */
+    padding-bottom: 60px; /* Adjust according to your footer height */
+    min-height: calc(100vh - 60px); /* Adjust according to your header and footer height */
+    transition: margin-left 0.5s;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background-color: rgb(35, 35, 35);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#pageFooter {
+    width: 100% !important;
+    padding: 0.5em;
+    background-color: rgb(35, 35, 35);
+    color: rgb(154, 154, 154);
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 12px;
+    margin-top: auto; /* se agrega esta línea para empujar el footer al final */
+    position: absolute;
+    bottom: 0;
+}
+
+    #pageFooter #address {
+        vertical-align: bottom;
+        float: left;
+        margin-left: 10px;
+    }
+
+    #pageFooter #webpage {
+        vertical-align: top;
+        float: left;
+        font-size: 16px;
+    }
+
+    #pageFooter #phonenumber {
+        vertical-align: bottom;
+        float: right;
+        margin-right: 10px;
+    }
+
+    #pageFooter i {
+        vertical-align: middle;
+        font-size: 5em;
+    }
+
+    #pageFooter a:link {
+        vertical-align: top;
+        font-family: 'Titillium Web', sans-serif;
+        color: #ffffff; /* color de texto inicial en blanco */
+        text-decoration: none;
+        font-size: 1em;
+    }
+
+
+    #pageFooter a:visited {
+        vertical-align: top;
+        font-family: 'Titillium Web', sans-serif;
+        color: #999;
+        text-decoration: none;
+    }
+
+    #pageFooter a:hover {
+        vertical-align: top;
+        font-family: 'Titillium Web', sans-serif;
+        color: #999;
+        text-decoration: underline;
+    }
+
+    #pageFooter a:active {
+        vertical-align: top;
+        font-family: 'Titillium Web', sans-serif;
+        color: #999;
+        text-decoration: underline;
+    }
+
+    #pageFooter a:focus {
+        color: #999; /* conserva el mismo color */
+        text-decoration: underline; /* conserva el mismo estilo de subrayado */
+        outline: none; /* elimina el contorno que algunos navegadores añaden por defecto */
+        /* añade más propiedades si es necesario, pero asegúrate de que no oculten el footer */
+    }
+
+.login-item {
+    display: block;
+    margin-right: 50px;
+}
+
+.login-nav .nav-link {
+    color: white; /* Cambia esto al color que prefieras */
+}
+
+.navbar-nav.login-nav {
+    flex-direction: row !important; /* Cambia la dirección de la flexión a la fila */
+}
+
+    .navbar-nav.login-nav .nav-item {
+        display: inline-block;
+    }
+
+        .navbar-nav.login-nav .nav-item .nav-link {
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+.nav .navbar-nav button.nav-link {
+    background: none;
+    border: none;
+    color: #ffffff; /* color inicial del texto en blanco */
+    text-align: left; /* alineación del texto */
+    cursor: pointer; /* cambia el cursor al estilo de enlace */
+    padding: 0; /* remueve el padding del botón */
+    font-size: 20px; /* tamaño de la fuente */
+}
+
+    .nav .navbar-nav button.nav-link .nav-icon,
+    .nav .navbar-nav button.nav-link .nav-text {
+        display: inline-block; /* permite la disposición en línea de los elementos */
+    }
+
+    .nav .navbar-nav button.nav-link:hover,
+    .nav .navbar-nav button.nav-link:active,
+    .nav .navbar-nav button.nav-link:focus {
+        color: #fff;
+        background-color: rgb(50,50,50);
+        text-decoration: none; /* remueve cualquier decoración del texto */
+    }
+
+.logout-item .nav-link {
+    color: rgb(150,150,150); /* Asegura que el color del texto sea blanco */
+}
+
+.logout-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .logout-item .nav-link:hover,
+.nav .logout-item .nav-link:active,
+.nav .logout-item .nav-link:focus {
+    color: #fff;
+    background-color: rgb(50,50,50);
+    text-decoration: none;
+}
+
+.nav .navbar-nav > .nav-item {
+    height: 100%;
+    width: 100%; /* Agregar esto para que el elemento se extienda por todo el ancho de la barra */
+    display: flex;
+    align-items: stretch;
+}
+
+    .nav .navbar-nav > .nav-item > .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* Asegurarte de que el enlace también ocupa todo el ancho del elemento de la lista */
+    }
+
+    .nav .navbar-nav > .nav-item:hover,
+    .nav .navbar-nav > .nav-item:active,
+    .nav .navbar-nav > .nav-item:focus {
+        background-color: rgb(50,50,50);
+    }
+
+        .nav .navbar-nav > .nav-item:hover .nav-link,
+        .nav .navbar-nav > .nav-item:active .nav-link,
+        .nav .navbar-nav > .nav-item:focus .nav-link {
+            color: #fff;
+        }
+
+.nav-collapsed {
+    width: 80px; /* Esta será la anchura de la barra de navegación cuando esté colapsada. Ajuste según sea necesario. */
+}
+
+    .nav-collapsed .nav-text {
+        display: none !important; /* Esto ocultará el texto cuando la barra de navegación esté colapsada. */
+    }
+
+    .nav-collapsed .nav-icon {
+        margin: 0 auto; /* Esto centrará los iconos cuando el nav esté colapsado */
+    }
+
+    .nav-collapsed .nav .navbar-nav .nav-icon {
+        margin: 0 auto; /* Centra el ícono horizontalmente */
+        display: block; /* Cambia a block para poder aplicar el margen automático */
+    }
+
+    .nav-collapsed .nav .navbar-nav .nav-item {
+        display: flex;
+        align-items: center; /* Centra los ítems verticalmente en el contenedor */
+        justify-content: center; /* Centra los ítems horizontalmente en el contenedor */
+    }
+
+    .nav-collapsed .nav .navbar-nav .nav-text {
+        display: none; /* Oculta el texto */
+    }
+
+.nav .navbar-nav li:hover .nav-item-label {
+    display: inline-block;
+}
+
+.pb-3 {
+    padding-left: 80px;
+}

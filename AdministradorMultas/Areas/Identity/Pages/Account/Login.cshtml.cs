@@ -122,7 +122,7 @@ namespace AdministradorMultas.Areas.Identity.Pages.Account
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
                 if (result.IsLockedOut)
-                {
+                {   
                     _logger.LogWarning("\r\nCuenta de usuario bloqueada.");
                     return RedirectToPage("./Lockout");
                 }

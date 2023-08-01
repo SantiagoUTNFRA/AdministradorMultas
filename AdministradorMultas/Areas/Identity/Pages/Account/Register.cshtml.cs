@@ -132,7 +132,7 @@ namespace AdministradorMultas.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirme su email",
-                        $"Por favor confirme su cuenta por <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
+                        $"Por favor confirme su cuenta, haga <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>click aquí</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -22,6 +22,56 @@ namespace AdministradorMultas.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AdministradorMultas.Models.ListaCamaras", b =>
+                {
+                    b.Property<string>("IdInspector")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("FechaAlta")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("IdVialControl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModification")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MunicipioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MunicipiosId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ubicacion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdInspector");
+
+                    b.HasIndex("MunicipiosId");
+
+                    b.ToTable("Camaras");
+                });
+
+            modelBuilder.Entity("AdministradorMultas.Models.ListaMunicipio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Municipios");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -224,6 +274,17 @@ namespace AdministradorMultas.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("AdministradorMultas.Models.ListaCamaras", b =>
+                {
+                    b.HasOne("AdministradorMultas.Models.ListaMunicipio", "Municipios")
+                        .WithMany("Camaras")
+                        .HasForeignKey("MunicipiosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Municipios");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -273,6 +334,11 @@ namespace AdministradorMultas.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AdministradorMultas.Models.ListaMunicipio", b =>
+                {
+                    b.Navigation("Camaras");
                 });
 #pragma warning restore 612, 618
         }
